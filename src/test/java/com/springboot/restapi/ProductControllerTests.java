@@ -27,7 +27,7 @@ class ProductControllerTests {
   @Autowired
   private MockMvc mockMvc;
 
-  Long testId = 20;
+  Long testId = 20L;
 
   //@Test
   //public void getProductAPI() throws Exception {
@@ -83,7 +83,7 @@ class ProductControllerTests {
   public void deleteProductAPI() throws Exception {
   
     try{
-      this.mockMvc.perform( delete("/product/{number}", (testId+1)) )
+      this.mockMvc.perform( delete("/product/{number}", (testId+1L)) )
         .andExpect(status().isOk());
     }catch(Exception ex){
       System.out.print(ex.getMessage());
