@@ -27,8 +27,6 @@ class ProductControllerTests {
   @Autowired
   private MockMvc mockMvc;
 
-  Long testId = 20L;
-
   //@Test
   //public void getProductAPI() throws Exception {
   //
@@ -42,7 +40,7 @@ class ProductControllerTests {
     try{
       this.mockMvc.perform( post("/product")
           .contentType(MediaType.APPLICATION_JSON)
-          .content(asJsonString(new ProductResponseDto(null, "Model 19", testId, testId)))
+          .content(asJsonString(new ProductResponseDto(null, "Model 19", 1000, 100)))
         )
         .andExpect(status().isOk())
         .andExpect(jsonPath("$.number").exists());
@@ -54,10 +52,10 @@ class ProductControllerTests {
   @Test
   public void getProductAPI() throws Exception {
     try{
-      this.mockMvc.perform(get("/product/{number}",testId))
+      this.mockMvc.perform(get("/product/{number}",21))
         .andDo(print())
         .andExpect(status().isOk())
-        .andExpect(jsonPath("$.number").value(testId));
+        .andExpect(jsonPath("$.number").value(21));
     }catch(Exception ex){
       System.out.print(ex.getMessage());
     }
@@ -69,10 +67,10 @@ class ProductControllerTests {
     try{
       this.mockMvc.perform( put("/product")
           .contentType(MediaType.APPLICATION_JSON)
-          .content(asJsonString(new ChangeProductNameDto(testId, "Model YY")))
+          .content(asJsonString(new ChangeProductNameDto(21L, "Model YY")))
         )
         .andExpect(status().isOk())
-        .andExpect(jsonPath("$.number").value(testId))
+        .andExpect(jsonPath("$.number").value(21))
         .andExpect(jsonPath("$.name").value("Model YY"));
     }catch(Exception ex){
       System.out.print(ex.getMessage());
@@ -83,7 +81,7 @@ class ProductControllerTests {
   public void deleteProductAPI() throws Exception {
   
     try{
-      this.mockMvc.perform( delete("/product/{number}", (testId+1L)) )
+      this.mockMvc.perform( delete("/product/{number}", (22)) )
         .andExpect(status().isOk());
     }catch(Exception ex){
       System.out.print(ex.getMessage());
