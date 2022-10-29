@@ -19,8 +19,4 @@ spec:
       - name: spring-boot-api-03-app
         image: localhost:5000/spring-boot-api-03-app:1.0
         ports:
-<<<<<<< HEAD
         - containerPort: 8080
-=======
-        - containerPort: 8080
->>>>>>> 510312b03be0e08eeb0ed281c1aedbf283711462

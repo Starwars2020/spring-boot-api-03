@@ -15,8 +15,4 @@ spec:
               service:
                 name: spring-boot-api-03-app
                 port:
-<<<<<<< HEAD
                   number: 8080
-=======
-                  number: 8080
->>>>>>> 510312b03be0e08eeb0ed281c1aedbf283711462

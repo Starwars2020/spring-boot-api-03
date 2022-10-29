@@ -69,8 +69,4 @@ public class ProductDAOImpl implements ProductDAO {
             throw new Exception();
         }
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 510312b03be0e08eeb0ed281c1aedbf283711462
