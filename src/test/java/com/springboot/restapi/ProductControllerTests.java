@@ -27,11 +27,8 @@ class ProductControllerTests {
   @Autowired
   private MockMvc mockMvc;
 
-<<<<<<< HEAD
   Long testId = 20;
 
-=======
->>>>>>> 510312b03be0e08eeb0ed281c1aedbf283711462
   //@Test
   //public void getProductAPI() throws Exception {
   //
@@ -45,11 +42,7 @@ class ProductControllerTests {
     try{
       this.mockMvc.perform( post("/product")
           .contentType(MediaType.APPLICATION_JSON)
-<<<<<<< HEAD
           .content(asJsonString(new ProductResponseDto(null, "Model 19", 100*testId, 10*testId)))
-=======
-          .content(asJsonString(new ProductResponseDto(null, "Model 19", 100*19, 10*19)))
->>>>>>> 510312b03be0e08eeb0ed281c1aedbf283711462
         )
         .andExpect(status().isOk())
         .andExpect(jsonPath("$.number").exists());
@@ -61,17 +54,10 @@ class ProductControllerTests {
   @Test
   public void getProductAPI() throws Exception {
     try{
-<<<<<<< HEAD
       this.mockMvc.perform(get("/product/{number}",testId))
         .andDo(print())
         .andExpect(status().isOk())
         .andExpect(jsonPath("$.number").value(testId));
-=======
-      this.mockMvc.perform(get("/product/{number}",19))
-        .andDo(print())
-        .andExpect(status().isOk())
-        .andExpect(jsonPath("$.number").value(19));
->>>>>>> 510312b03be0e08eeb0ed281c1aedbf283711462
     }catch(Exception ex){
       System.out.print(ex.getMessage());
     }
@@ -83,17 +69,10 @@ class ProductControllerTests {
     try{
       this.mockMvc.perform( put("/product")
           .contentType(MediaType.APPLICATION_JSON)
-<<<<<<< HEAD
           .content(asJsonString(new ChangeProductNameDto(testId, "Model YY")))
         )
         .andExpect(status().isOk())
         .andExpect(jsonPath("$.number").value(testId))
-=======
-          .content(asJsonString(new ChangeProductNameDto(19L, "Model YY")))
-        )
-        .andExpect(status().isOk())
-        .andExpect(jsonPath("$.number").value(19))
->>>>>>> 510312b03be0e08eeb0ed281c1aedbf283711462
         .andExpect(jsonPath("$.name").value("Model YY"));
     }catch(Exception ex){
       System.out.print(ex.getMessage());
@@ -104,11 +83,7 @@ class ProductControllerTests {
   public void deleteProductAPI() throws Exception {
   
     try{
-<<<<<<< HEAD
       this.mockMvc.perform( delete("/product/{number}", (testId+1)) )
-=======
-      this.mockMvc.perform( delete("/product/{number}", 20) )
->>>>>>> 510312b03be0e08eeb0ed281c1aedbf283711462
         .andExpect(status().isOk());
     }catch(Exception ex){
       System.out.print(ex.getMessage());
