@@ -42,7 +42,7 @@ class ProductControllerTests {
     try{
       this.mockMvc.perform( post("/product")
           .contentType(MediaType.APPLICATION_JSON)
-          .content(asJsonString(new ProductResponseDto(null, "Model 19", 100L*testId, 10L*testId)))
+          .content(asJsonString(new ProductResponseDto(null, "Model 19", testId, testId)))
         )
         .andExpect(status().isOk())
         .andExpect(jsonPath("$.number").exists());
